@@ -310,11 +310,11 @@ public class MainView extends javax.swing.JFrame implements MessageHandler {
   }//GEN-LAST:event_aboutBtnActionPerformed
 
     private void OrganizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrganizeActionPerformed
-
+                messenger.notify("organizeDown");
     }//GEN-LAST:event_OrganizeActionPerformed
 
     private void Organize2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Organize2ActionPerformed
-        // TODO add your handling code here:
+        messenger.notify("organizeUp");
     }//GEN-LAST:event_Organize2ActionPerformed
 
   /**
