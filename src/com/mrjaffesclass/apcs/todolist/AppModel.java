@@ -16,7 +16,8 @@ public class AppModel implements MessageHandler {
   //              ToDoItem that's added to the list
   private final Messenger messenger;
   private final ArrayList<ToDoItem> toDoList;   
-  private int nextId = 0;                 
+  private int nextId = 0;
+  private boolean notFinished;
   
   /**
    * Model constructor: Create the data representation of the program
@@ -91,6 +92,39 @@ public class AppModel implements MessageHandler {
         removeCompletedItems();
         messenger.notify("saved");
         messenger.notify("items", this.getItems());
+        
+      case "organizeDown":
+                do {
+                    notFinished = false;
+
+                    for (int i = 0; i < toDoList.size() - 1; i++) {
+                        if (toDoList.get(i).getDateDate().compareTo(toDoList.get(i + 1).getDateDate()) == 1) {
+                            ToDoItem temp = toDoList.get(i);
+                            toDoList.set(i, toDoList.get(i + 1));
+                            toDoList.set(i + 1, temp);
+
+                            notFinished = true;
+                        }
+                    }
+                } while (notFinished);
+                messenger.notify("items", this.getItems());
+                break;
+
+            case "organizeUp":
+                do {
+                    notFinished = false;
+
+                    for (int i = 0; i < toDoList.size() - 1; i++) {
+                        if (toDoList.get(i).getDateDate().compareTo(toDoList.get(i + 1).getDateDate()) == -1) {
+                            ToDoItem temp = toDoList.get(i);
+                            toDoList.set(i, toDoList.get(i + 1));
+                            toDoList.set(i + 1, temp);
+
+                            notFinished = true;
+                        }
+                    }
+                } while (notFinished);
+                messenger.notify("items", this.getItems());
     }
   }
 
