@@ -98,7 +98,7 @@ public class AppModel implements MessageHandler {
                     notFinished = false;
 
                     for (int i = 0; i < toDoList.size() - 1; i++) {
-                        if (toDoList.get(i).getDateDate().compareTo(toDoList.get(i + 1).getDateDate()) == 1) {
+                        if (toDoList.get(i).getDate().compareTo(toDoList.get(i + 1).getDate()) == 1) {
                             ToDoItem temp = toDoList.get(i);
                             toDoList.set(i, toDoList.get(i + 1));
                             toDoList.set(i + 1, temp);
@@ -115,7 +115,7 @@ public class AppModel implements MessageHandler {
                     notFinished = false;
 
                     for (int i = 0; i < toDoList.size() - 1; i++) {
-                        if (toDoList.get(i).getDateDate().compareTo(toDoList.get(i + 1).getDateDate()) == -1) {
+                        if (toDoList.get(i).getDate().compareTo(toDoList.get(i + 1).getDate()) == -1) {
                             ToDoItem temp = toDoList.get(i);
                             toDoList.set(i, toDoList.get(i + 1));
                             toDoList.set(i + 1, temp);
